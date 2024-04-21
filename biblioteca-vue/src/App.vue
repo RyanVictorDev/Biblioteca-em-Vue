@@ -1,20 +1,26 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app dark>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            OnLibrary <v-icon>mdi-book</v-icon>
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            Menu
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
+    <v-navigation-drawer v-model="drawer" app dark v-bind:mini-variant="miniVariant" color="#333">
+        <v-list>
+          <v-list-item class="px-2">
+            <v-list-item-avatar>
+              <v-img src="https://randomuser.me/api/portraits/women/75.jpg"></v-img>
+            </v-list-item-avatar>
+          </v-list-item>
 
-      <v-divider></v-divider>
+          <v-list-item link>
+            <v-list-item-content>
+              <v-list-item-title class="text-h6">
+                Your Profile :)
+              </v-list-item-title>
+              <v-list-item-subtitle>yourcoolemail@gmail.com</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
 
-      <v-list dense nav>
+        <v-divider></v-divider>
+
+        <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" link>
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -25,10 +31,16 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+       
 
-    <v-app-bar app dark>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-btn color="error" absolute right left bottom v-bind:plain="btnShow">
+        <v-item-icon><v-icon>mdi-account</v-icon></v-item-icon>
+        <v-item-title>Sair</v-item-title>
+      </v-btn>
+      </v-navigation-drawer>
+
+    <v-app-bar app dark color="#333">
+      <v-app-bar-nav-icon @click="miniVariant = !miniVariant; btnShow = !btnShow;" ></v-app-bar-nav-icon>
       <v-toolbar-title><v-icon>mdi-book</v-icon> OnLibrary</v-toolbar-title>
     </v-app-bar>
 
@@ -49,7 +61,9 @@ export default {
   },
 
   data: () => ({
-    drawer: null,
+    miniVariant: true,
+    btnShow: true,
+  
     items: [
           { title: 'Home', icon: 'mdi-home' },
           { title: 'Galeria', icon: 'mdi-book' },
