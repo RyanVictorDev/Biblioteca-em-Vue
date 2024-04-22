@@ -21,23 +21,32 @@
         <v-divider></v-divider>
 
         <v-list dense nav>
-        <v-list-item v-for="item in items" :key="item.title" link>
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+          <v-list-item v-for="item in items" :key="item.title" link>
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-       
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
 
-      <v-btn color="error" absolute right left bottom v-bind:plain="btnShow">
-        <v-item-icon><v-icon>mdi-account</v-icon></v-item-icon>
-        <v-item-title>Sair</v-item-title>
-      </v-btn>
-      </v-navigation-drawer>
+        <template v-slot:append>
+          <v-list dense nav class="rounded-xl mb-5 mx-auto">
+            <v-list-item link class="redBack">
+                <v-list-item-icon>
+                <v-icon>mdi-account</v-icon>
+              </v-list-item-icon>
+
+              <v-list-item-content>
+                <v-list-item-title>Logout</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </template>
+
+    </v-navigation-drawer>
 
     <v-app-bar app dark color="#333">
       <v-app-bar-nav-icon @click="miniVariant = !miniVariant; btnShow = !btnShow;" ></v-app-bar-nav-icon>
@@ -74,3 +83,9 @@ export default {
 
 };
 </script>
+
+<style scoped>
+  .redBack{
+    background-color: rgb(255, 52, 52);
+  }
+</style>
