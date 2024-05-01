@@ -1,8 +1,6 @@
 <template>
   <div>
     <h1>Olá</h1>
-    <v-icon left right>mdi-star</v-icon>
-
   </div>
 </template>
 

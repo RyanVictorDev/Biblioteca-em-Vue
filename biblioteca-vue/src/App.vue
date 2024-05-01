@@ -4,12 +4,10 @@
     <v-main>
       <router-view/>
     </v-main>
-    <mensage-component/>
   </v-app>
 </template>
 
 <script>
-import MensageComponent from './components/MensageComponent.vue';
 import NavComponent from './components/NavComponent.vue';
 
 export default {
@@ -17,7 +15,6 @@ export default {
 
   components: {
     NavComponent,
-    MensageComponent
   },
 
   data: () => ({
